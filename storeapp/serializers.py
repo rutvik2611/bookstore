@@ -24,3 +24,9 @@ class TransactionSerializer(serializers.ModelSerializer):
         model = models.Transaction
         fields = '__all__'
 
+class LibrarySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Library
+        fields = '__all__'
+
