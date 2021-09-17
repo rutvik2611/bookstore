@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from storeapp.model_managers import StoreUserManager
 from base import base_model
 import datetime as dt
+from django.core.exceptions import ValidationError
 # Create your models here.
 
 
@@ -16,10 +17,18 @@ class User(AbstractUser):
 
     objects = StoreUserManager()
 
+def nameFiledValidator(value):
+    s = str(value)
+    if len(s)== 13:
+        return value
+    else:
+        raise ValidationError("ISBN Number Must be 13 digit") 
+
 class Books(base_model.TimeStampMixin):
     title = models.CharField(max_length=200, null=False)
     author = models.ManyToManyField(User)
-    isbn = models.CharField(max_length=13)
+    isbn = models.CharField('ISBN', max_length=13,help_text="Enter 13 digit ISBN Number", unique=True, 
+                             validators=[nameFiledValidator])
 
 class Transaction(base_model.TimeStampMixin):
     rented_by = models.ForeignKey(User, related_name='rented_by', on_delete=models.CASCADE)
