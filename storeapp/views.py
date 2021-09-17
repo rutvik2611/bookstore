@@ -28,3 +28,11 @@ class TransactionViewSet(viewsets.ModelViewSet):
     """
     queryset = models.Transaction.objects.all()
     serializer_class = serializers.TransactionSerializer
+
+class LibraryViewSet(viewsets.ModelViewSet):
+    """
+        This to manage library 
+        creation, list, update and delete
+    """
+    queryset = models.Library.objects.all()
+    serializer_class = serializers.LibrarySerializer
