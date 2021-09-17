@@ -20,3 +20,11 @@ class BookViewSet(viewsets.ModelViewSet):
     """
     queryset = models.Books.objects.all()
     serializer_class = serializers.BookSerializer
+
+class TransactionViewSet(viewsets.ModelViewSet):
+    """
+        This to manage transaction 
+        creation, list, update and delete
+    """
+    queryset = models.Transaction.objects.all()
+    serializer_class = serializers.TransactionSerializer
