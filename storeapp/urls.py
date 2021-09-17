@@ -14,4 +14,7 @@ urlpatterns = [
 
     path('library/', views.LibraryViewSet.as_view({'get': 'list', 'post': 'create'})),
     path('library/<int:pk>/', views.LibraryViewSet.as_view({'delete': 'destroy', 'get' : 'retrieve', 'put': 'update'})),
+
+    path('library/<int:library_id>/books/', views.LibraryBooksView.as_view()),
+    path('users/<int:user_id>/books/', views.TransactionView.as_view())
 ]
