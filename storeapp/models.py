@@ -35,3 +35,8 @@ class Transaction(base_model.TimeStampMixin):
         if self.due_date is None:
             self.due_date = self.rented_on + dt.timedelta(days=7)
         super(Transaction, self).save(*args, **kwargs)
+
+
+class Library(base_model.TimeStampMixin):
+    name = models.CharField(max_length=100)
+    books = models.ManyToManyField(Books)
