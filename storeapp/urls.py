@@ -11,4 +11,7 @@ urlpatterns = [
 
     path('transactions/', views.TransactionViewSet.as_view({'get': 'list', 'post': 'create'})),
     path('transactions/<int:pk>/', views.TransactionViewSet.as_view({'delete': 'destroy', 'get' : 'retrieve', 'put': 'update'})),
+
+    path('library/', views.LibraryViewSet.as_view({'get': 'list', 'post': 'create'})),
+    path('library/<int:pk>/', views.LibraryViewSet.as_view({'delete': 'destroy', 'get' : 'retrieve', 'put': 'update'})),
 ]
